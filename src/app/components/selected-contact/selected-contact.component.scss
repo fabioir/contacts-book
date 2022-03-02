@@ -1,3 +1,26 @@
 :host {
   width: 50%;
+  display: flex;
+  .no-selection,
+  .selected-contact {
+    margin: auto;
+  }
+
+  .selected-contact {
+    padding: 24px;
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      .label {
+        color: rgba(0, 0, 0, 0.6);
+      }
+      .contact-info {
+        font-size: 16px;
+        font-weight: 500;
+        padding-left: 10px;
+        margin-bottom: 5px;
+        word-break: break-all;
+      }
+    }
+  }
 }

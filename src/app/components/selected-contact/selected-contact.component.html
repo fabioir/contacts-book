@@ -1,1 +1,22 @@
-<p>WORKS</p>
+<div class="no-selection" *ngIf="!selectedContact; else selection">
+  <span>No selected contact</span>
+</div>
+<ng-template #selection>
+  <div class="selected-contact">
+    <mat-card>
+      <mat-card-title>Selected contact</mat-card-title>
+      <mat-card-content class="contact-details">
+        <span class="label">Name:</span>
+        <span class="contact-info">{{ selectedContact?.name }}</span>
+        <span class="label">Family name:</span>
+        <span class="contact-info">{{ selectedContact?.familyName }}</span>
+        <span class="label">Email:</span>
+        <span class="contact-info">{{ selectedContact?.email }}</span>
+        <span class="label">Phone:</span>
+        <span class="contact-info">{{ selectedContact?.phone }}</span>
+        <span class="label">Address:</span>
+        <span class="contact-info">{{ selectedContact?.address }}</span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-template>
