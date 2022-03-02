@@ -3,6 +3,7 @@ import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatDialogHarness } from '@angular/material/dialog/testing';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideMockStore } from '@ngrx/store/testing';
 import { of } from 'rxjs';
@@ -20,7 +21,7 @@ describe('ToolbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ToolbarComponent],
-      imports: [MatDialogModule, BrowserAnimationsModule],
+      imports: [MatDialogModule, BrowserAnimationsModule, MatToolbarModule],
       providers: [provideMockStore({ initialState: mockInitialState })]
     }).compileComponents();
   });
