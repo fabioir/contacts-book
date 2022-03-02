@@ -1,3 +1,7 @@
 :host {
   display: block;
+  .contacts-book-toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
 }
