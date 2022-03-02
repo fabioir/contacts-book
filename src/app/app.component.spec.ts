@@ -5,13 +5,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { provideMockStore } from '@ngrx/store/testing';
 import { AppComponent } from './app.component';
 import { ContactsListComponent } from './components/contacts-list/contacts-list.component';
+import { SelectedContactComponent } from './components/selected-contact/selected-contact.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { mockInitialState } from './mocks/state.mock';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, ContactsListComponent, ToolbarComponent],
+      declarations: [
+        AppComponent,
+        ContactsListComponent,
+        ToolbarComponent,
+        SelectedContactComponent
+      ],
       imports: [MatFormFieldModule, MatDialogModule, MatToolbarModule],
       providers: [provideMockStore({ initialState: mockInitialState })]
     }).compileComponents();

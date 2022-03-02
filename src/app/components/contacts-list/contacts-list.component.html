@@ -1,1 +1,21 @@
-<p>contacts-list works!</p>
+<mat-card *ngIf="contacts$ | async as contacts" class="contacts-list-card">
+  <mat-card-title>Contacts list</mat-card-title>
+  <mat-card-content>
+    <div
+      *ngIf="!contacts?.length; else contactsItems"
+      class="no-contacts-message"
+    >
+      <span>There are no contacts</span>
+    </div>
+  </mat-card-content>
+  <ng-template #contactsItems>
+    <div
+      class="contact-item"
+      [ngClass]="{ selected: contact.email === selectedContactEmail }"
+      *ngFor="let contact of contacts"
+      (click)="selectContact(contact)"
+    >
+      <span>{{ contact.name + ' ' + contact.familyName }}</span>
+    </div>
+  </ng-template>
+</mat-card>

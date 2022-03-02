@@ -1,0 +1,7 @@
+:host {
+  .body-container {
+    height: calc(100% - 64px);
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+}

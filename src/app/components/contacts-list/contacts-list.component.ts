@@ -1,7 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { IContact } from 'src/app/models/contacts.model';
+import { selectContact } from 'src/app/store/contacts-book.actions';
 import { IContactsBookState } from 'src/app/store/reducers/contacts-book.reducer';
 import {
   selectContactsList,
@@ -11,7 +17,8 @@ import {
 @Component({
   selector: 'app-contacts-list',
   templateUrl: './contacts-list.component.html',
-  styleUrls: ['./contacts-list.component.scss']
+  styleUrls: ['./contacts-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactsListComponent implements OnInit, OnDestroy {
   public contacts$!: Observable<readonly IContact[]>;
@@ -32,5 +39,9 @@ export class ContactsListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
+  }
+
+  public selectContact(selectedContact: IContact): void {
+    this.store.dispatch(selectContact({ selectedContact }));
   }
 }
